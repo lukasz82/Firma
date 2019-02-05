@@ -1,0 +1,20 @@
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.exe.config
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.exe
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.pdb
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csprojAssemblyReference.cache
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.Form1.resources
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.Properties.Resources.resources
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csproj.GenerateResource.cache
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csproj.CoreCompileInputs.cache
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.exe
+C:\Users\lkazimie\Desktop\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.pdb
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csprojAssemblyReference.cache
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.Form1.resources
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.Properties.Resources.resources
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csproj.GenerateResource.cache
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.csproj.CoreCompileInputs.cache
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.exe
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\obj\Debug\Zadanie.pdb
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.exe.config
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.exe
+D:\programowanie\net Core apki\Dzien 3 cszarp\Dzien 3 cszarp\ZadanieFirma\Zadanie\Zadanie\bin\Debug\Zadanie.pdb
