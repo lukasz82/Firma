@@ -38,6 +38,30 @@ namespace Zadanie
             }
         }
 
+        public void LoadDepartmentsFromFile()
+        {
+            string line;
+            var sr = new StreamReader(path);
+            departments.Clear();
+            while (!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+                departments.Add(new Department(line));
+            }
+            sr.Close();
+        }
+
+        public void RefreshCombDepartment(ref ComboBox combDepartment)
+        {
+            combDepartment.Items.Clear();
+
+            LoadDepartmentsFromFile();
+            foreach (var departm in departments)
+            {
+                combDepartment.Items.Add(departm.Name);
+            }
+        }
+
         public void Show(ref ListBox listDepartments, Department d)
         {
             listDepartments.Items.Clear();

@@ -27,7 +27,7 @@ namespace Zadanie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            em.Initialize(ref listView1);
+            em.Initialize(ref listView1, ref combDepartment, ref combWorkplace);
             em.ShowAllEmployees(ref listView1, em);
             d.Show(ref listDepartments, d);
         }
@@ -52,6 +52,7 @@ namespace Zadanie
             {
                 d.Add(txtAddDepartment.Text);
                 d.Show(ref listDepartments, d);
+                d.RefreshCombDepartment(ref combDepartment);
             }
             else
             {

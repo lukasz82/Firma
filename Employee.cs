@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Zadanie
 {
-    public class Employee : Form
+    public class Employee
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,14 +16,27 @@ namespace Zadanie
         public Workplace EmplWorkplace { get; set; }
         
         public List<Employee> employees = new List<Employee>();
+        Department departs = new Department();
 
         public Employee()
         {
-
         }
 
-        public void Initialize(ref ListView listView1)
+
+
+        public void Initialize(ref ListView listView1, ref ComboBox combDepartment, ref ComboBox combWorkplace)
         {
+            foreach (var items in Enum.GetValues(typeof(Workplace.Workplaces)))
+            {
+                combWorkplace.Items.Add(items);
+            }
+
+            departs.LoadDepartmentsFromFile();
+            foreach (var departm in departs.departments)
+            {
+                combDepartment.Items.Add(departm.Name);
+            }
+            
             employees.Add(new Employee("Łukasz", "Kazimierczak", DateTime.Parse("1/10/1982"),
                           new Address("Krakow", "Pocztowa", "33-333"),
                           new Workplace(DateTime.Parse("1/10/2010"), "DT", Workplace.Workplaces.Dyrektor, 200000, 123123123, 10)));
@@ -64,21 +77,21 @@ namespace Zadanie
                 ref TextBox txtWorkplacePhoneNumber,
                 ref TextBox txtWorkplaceRoomNumber)
                 {
-                    
                     FirstName = txtEmployeeName.Text;
                     LastName = txtEmployeeSurname.Text;
                     BirthDate = new DateTime(Int32.Parse(txtBirthDateYear.Text), Int32.Parse(txtBirthDateMonth.Text), Int32.Parse(txtBirthDateDay.Text));
                     LifeAddress = new Address(txtAdressCity.Text, txtAdressStreet.Text, txtAdressZIPCode.Text);
-                    EmplWorkplace = new Workplace(
-                                        new DateTime(Int32.Parse(txtBirthDateYear.Text), Int32.Parse(txtBirthDateMonth.Text), Int32.Parse(txtBirthDateDay.Text)),
-                                        combDepartment.Text,
-                                        // Parsowanie string do enum
-                                        (Workplace.Workplaces)Enum.Parse(typeof(Workplace.Workplaces), combWorkplace.Text, true),
-                                        Int32.Parse(txtWorkplaceIncome.Text),
-                                        Int32.Parse(txtWorkplacePhoneNumber.Text),
-                                        Int32.Parse(txtWorkplacePhoneNumber.Text)
-                                        );
-
+                    EmplWorkplace = new Workplace
+                    (
+                        new DateTime(Int32.Parse(txtWorkplaceDateYear.Text), Int32.Parse(txtWorkplaceDateMonth.Text), Int32.Parse(txtWorkplaceDateDay.Text)),
+                        combDepartment.Text,
+                        // Parsowanie string do enum
+                        (Workplace.Workplaces)Enum.Parse(typeof(Workplace.Workplaces), combWorkplace.Text, true),
+                        Int32.Parse(txtWorkplaceIncome.Text),
+                        Int32.Parse(txtWorkplacePhoneNumber.Text),
+                        Int32.Parse(txtWorkplaceRoomNumber.Text)
+                    );
+                    employees.Add(new Employee(FirstName, LastName, BirthDate, LifeAddress, EmplWorkplace));
                 }
 
 
