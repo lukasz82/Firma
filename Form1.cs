@@ -25,18 +25,6 @@ namespace Zadanie
         {
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            em.Initialize(ref listView1, ref combDepartment, ref combWorkplace);
-            em.ShowAllEmployees(ref listView1, em);
-            d.Show(ref listDepartments, d);
-        }
-
-        private void btnWyswietlWszystkichPracownikow_Click(object sender, EventArgs e)
-        {
-            em.ShowAllEmployees(ref  listView1, em);
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -47,7 +35,6 @@ namespace Zadanie
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
-            
             if (txtAddDepartment.Text != "")
             {
                 d.Add(txtAddDepartment.Text);
@@ -97,6 +84,23 @@ namespace Zadanie
                 ref txtWorkplaceIncome,
                 ref txtWorkplacePhoneNumber,
                 ref txtWorkplaceRoomNumber);
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            em.Initialize(ref listView1, ref combDepartment, ref combWorkplace);
+            await em.ShowAllEmployees(listView1, em, lblTaskInfo);
+            d.Show(ref listDepartments, d);
+        }
+
+        private async void btnImportFromDataBase_Click(object sender, EventArgs e)
+        {
+            await em.ImportFromDatabase(lblTaskInfo);
+        }
+
+        private async void btnWyswietlWszystkichPracownikow_Click(object sender, EventArgs e)
+        {
+            await em.ShowAllEmployees(listView1, em, lblTaskInfo);
         }
     }
 }

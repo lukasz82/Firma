@@ -1,3 +1,9 @@
-Imie|Nazwisko
-�ukasz|Kazimierczak
-Maria|Nowak
+﻿Łukasz,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Księgowość,Manager,2019-01-24 00:00:00,0,0,22222
+Łukasz,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Księgowość,Dyrektor,2019-01-24 00:00:00,0,12,22222
+Łukasz,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Dyrektor,2019-01-24 00:00:00,0,12,22222
+Łukasz,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Asystent,2019-01-24 00:00:00,123123123,0,22222
+Anna,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Pracownik,2019-01-24 00:00:00,0,0,22222
+Anna,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Pracownik,2019-01-24 00:00:00,0,0,22222
+Anna,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Pracownik,2019-01-24 00:00:00,0,0,22222
+Anna,Ka, 1999-12-25 00:00:00, Oświecim,Polna,32-620,Dyrekcja,Pracownik,2019-01-24 00:00:00,0,0,22222
+Maja,Wrośnka, 1999-12-25 00:00:00, Brzeszcze,Polna,32-620,Dyrekcja,Pracownik,2019-01-24 00:00:00,0,0,22222
