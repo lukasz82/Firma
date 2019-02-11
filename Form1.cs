@@ -89,7 +89,7 @@ namespace Zadanie
         private async void Form1_Load(object sender, EventArgs e)
         {
             em.Initialize(ref listView1, ref combDepartment, ref combWorkplace);
-            await em.ShowAllEmployees(listView1, em, lblTaskInfo);
+            await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
             d.Show(ref listDepartments, d);
         }
 
@@ -100,7 +100,12 @@ namespace Zadanie
 
         private async void btnWyswietlWszystkichPracownikow_Click(object sender, EventArgs e)
         {
-            await em.ShowAllEmployees(listView1, em, lblTaskInfo);
+            await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+        }
+
+        private void btnLoadFromFile_Click(object sender, EventArgs e)
+        {
+            em.ImportFromFile(lblTaskInfo);
         }
     }
 }

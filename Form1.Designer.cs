@@ -31,8 +31,13 @@
             this.Departments = new System.Windows.Forms.TabControl();
             this.tabStronaGlowna = new System.Windows.Forms.TabPage();
             this.tabPracownicy = new System.Windows.Forms.TabPage();
+            this.btnLoadFromFile = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnImportFromDataBase = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.btnWyswietlWszystkichPracownikow = new System.Windows.Forms.Button();
+            this.lblTaskInfo = new System.Windows.Forms.Label();
             this.tabDodajPracownika = new System.Windows.Forms.TabPage();
             this.txtWorkplaceDateYear = new System.Windows.Forms.TextBox();
             this.txtWorkplaceDateMonth = new System.Windows.Forms.TextBox();
@@ -72,9 +77,6 @@
             this.txtAddDepartment = new System.Windows.Forms.TextBox();
             this.lblAddDepartment = new System.Windows.Forms.Label();
             this.btnAddDepartment = new System.Windows.Forms.Button();
-            this.btnImportFromDataBase = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTaskInfo = new System.Windows.Forms.Label();
             this.Departments.SuspendLayout();
             this.tabPracownicy.SuspendLayout();
             this.tabDodajPracownika.SuspendLayout();
@@ -106,6 +108,8 @@
             // 
             // tabPracownicy
             // 
+            this.tabPracownicy.Controls.Add(this.btnLoadFromFile);
+            this.tabPracownicy.Controls.Add(this.progressBar1);
             this.tabPracownicy.Controls.Add(this.label9);
             this.tabPracownicy.Controls.Add(this.btnImportFromDataBase);
             this.tabPracownicy.Controls.Add(this.listView1);
@@ -120,6 +124,43 @@
             this.tabPracownicy.UseVisualStyleBackColor = true;
             this.tabPracownicy.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // btnLoadFromFile
+            // 
+            this.btnLoadFromFile.Location = new System.Drawing.Point(9, 380);
+            this.btnLoadFromFile.Name = "btnLoadFromFile";
+            this.btnLoadFromFile.Size = new System.Drawing.Size(117, 42);
+            this.btnLoadFromFile.TabIndex = 6;
+            this.btnLoadFromFile.Text = "Wgraj pracowników w pliku";
+            this.btnLoadFromFile.UseVisualStyleBackColor = true;
+            this.btnLoadFromFile.Click += new System.EventHandler(this.btnLoadFromFile_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(320, 406);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(442, 19);
+            this.progressBar1.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.Location = new System.Drawing.Point(6, 300);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(308, 29);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Symulacja wielowątkowości - zaciągnięcie z bazy 100 tys pracowników bez zatrzyman" +
+    "ia aplikacji.";
+            // 
+            // btnImportFromDataBase
+            // 
+            this.btnImportFromDataBase.Location = new System.Drawing.Point(9, 332);
+            this.btnImportFromDataBase.Name = "btnImportFromDataBase";
+            this.btnImportFromDataBase.Size = new System.Drawing.Size(117, 42);
+            this.btnImportFromDataBase.TabIndex = 2;
+            this.btnImportFromDataBase.Text = "Importuj z bazy";
+            this.btnImportFromDataBase.UseVisualStyleBackColor = true;
+            this.btnImportFromDataBase.Click += new System.EventHandler(this.btnImportFromDataBase_Click);
+            // 
             // listView1
             // 
             this.listView1.Location = new System.Drawing.Point(6, 6);
@@ -130,13 +171,26 @@
             // 
             // btnWyswietlWszystkichPracownikow
             // 
-            this.btnWyswietlWszystkichPracownikow.Location = new System.Drawing.Point(161, 332);
+            this.btnWyswietlWszystkichPracownikow.Location = new System.Drawing.Point(160, 333);
             this.btnWyswietlWszystkichPracownikow.Name = "btnWyswietlWszystkichPracownikow";
             this.btnWyswietlWszystkichPracownikow.Size = new System.Drawing.Size(123, 42);
             this.btnWyswietlWszystkichPracownikow.TabIndex = 0;
-            this.btnWyswietlWszystkichPracownikow.Text = "Wyswietl Wszystkich Pracownikow";
+            this.btnWyswietlWszystkichPracownikow.Text = "Wyswietl wszystkich pracownikow";
             this.btnWyswietlWszystkichPracownikow.UseVisualStyleBackColor = true;
             this.btnWyswietlWszystkichPracownikow.Click += new System.EventHandler(this.btnWyswietlWszystkichPracownikow_Click);
+            // 
+            // lblTaskInfo
+            // 
+            this.lblTaskInfo.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblTaskInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTaskInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblTaskInfo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTaskInfo.Location = new System.Drawing.Point(320, 300);
+            this.lblTaskInfo.Name = "lblTaskInfo";
+            this.lblTaskInfo.Size = new System.Drawing.Size(442, 106);
+            this.lblTaskInfo.TabIndex = 4;
+            this.lblTaskInfo.Text = "Info...";
+            this.lblTaskInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabDodajPracownika
             // 
@@ -500,39 +554,6 @@
             this.btnAddDepartment.UseVisualStyleBackColor = true;
             this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
-            // btnImportFromDataBase
-            // 
-            this.btnImportFromDataBase.Location = new System.Drawing.Point(9, 332);
-            this.btnImportFromDataBase.Name = "btnImportFromDataBase";
-            this.btnImportFromDataBase.Size = new System.Drawing.Size(117, 42);
-            this.btnImportFromDataBase.TabIndex = 2;
-            this.btnImportFromDataBase.Text = "Importuj z bazy";
-            this.btnImportFromDataBase.UseVisualStyleBackColor = true;
-            this.btnImportFromDataBase.Click += new System.EventHandler(this.btnImportFromDataBase_Click);
-            // 
-            // label9
-            // 
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label9.Location = new System.Drawing.Point(6, 300);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(308, 29);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Symulacja wielowątkowości - zaciągnięcie z bazy 100 tys pracowników bez zatrzyman" +
-    "ia aplikacji.";
-            // 
-            // lblTaskInfo
-            // 
-            this.lblTaskInfo.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblTaskInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTaskInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblTaskInfo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTaskInfo.Location = new System.Drawing.Point(320, 300);
-            this.lblTaskInfo.Name = "lblTaskInfo";
-            this.lblTaskInfo.Size = new System.Drawing.Size(442, 119);
-            this.lblTaskInfo.TabIndex = 4;
-            this.lblTaskInfo.Text = "Info...";
-            this.lblTaskInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,7 +562,7 @@
             this.ClientSize = new System.Drawing.Size(803, 516);
             this.Controls.Add(this.Departments);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Baza Pracowników";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Departments.ResumeLayout(false);
             this.tabPracownicy.ResumeLayout(false);
@@ -602,6 +623,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnImportFromDataBase;
         private System.Windows.Forms.Label lblTaskInfo;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button btnLoadFromFile;
     }
 }
 

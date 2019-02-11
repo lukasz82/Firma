@@ -15,7 +15,9 @@ namespace Zadanie
 
         public Department()
         {
-            path = "D:\\programowanie\\net Core apki\\Dzien 3 cszarp\\Dzien 3 cszarp\\ZadanieFirma\\Zadanie\\Zadanie\\Database\\Departments.txt";
+            string currentDirectory = Directory.GetCurrentDirectory();
+            path = currentDirectory + "\\Database\\Departments.txt";
+            //path = "D:\\programowanie\\net Core apki\\Dzien 3 cszarp\\Dzien 3 cszarp\\ZadanieFirma\\Zadanie\\Zadanie\\Database\\Departments.txt";
         }
 
         public Department(string name)

@@ -22,7 +22,8 @@ namespace Zadanie
 
         public Employee()
         {
-            path = "D:\\programowanie\\net Core apki\\Dzien 3 cszarp\\Dzien 3 cszarp\\ZadanieFirma\\Zadanie\\Zadanie\\Database\\Employes.txt";
+            string currentDirectory = Directory.GetCurrentDirectory();
+            path = currentDirectory + "\\Database\\Employes.txt";
         }
 
         public void Initialize(ref ListView listView1, ref ComboBox combDepartment, ref ComboBox combWorkplace)
@@ -38,7 +39,7 @@ namespace Zadanie
                 combDepartment.Items.Add(departm.Name);
             }
 
-            listView1.Columns.Add("Lp.").Width = 20;
+            listView1.Columns.Add("Lp.").Width = 50;
             listView1.Columns.Add("Imię").Width = 80;
             listView1.Columns.Add("Nazwisko").Width = 100;
             listView1.Columns.Add("Data Urodzenia").Width = 75;
@@ -93,17 +94,17 @@ namespace Zadanie
             {
                 var sw = new StreamWriter(path, append: true);
                 sw.WriteLine($"" +
-                    $"{FirstName}," +
-                    $"{LastName}, " +
-                    $"{BirthDate}, " +
-                    $"{LifeAddress.City}," +
-                    $"{LifeAddress.Street}," +
-                    $"{LifeAddress.ZIPcode}," +
-                    $"{EmplWorkplace.Department}," +
-                    $"{EmplWorkplace.EmplWorkplace}," +
-                    $"{EmplWorkplace.DateOfEmployment}," +
-                    $"{EmplWorkplace.PhoneNumber}," +
-                    $"{EmplWorkplace.RoomNumber}," +
+                    $"{FirstName}|" +
+                    $"{LastName}|" +
+                    $"{BirthDate}|" +
+                    $"{LifeAddress.City}|" +
+                    $"{LifeAddress.Street}|" +
+                    $"{LifeAddress.ZIPcode}|" +
+                    $"{EmplWorkplace.Department}|" +
+                    $"{EmplWorkplace.EmplWorkplace}|" +
+                    $"{EmplWorkplace.DateOfEmployment}|" +
+                    $"{EmplWorkplace.PhoneNumber}|" +
+                    $"{EmplWorkplace.RoomNumber}|" +
                     $"{EmplWorkplace.YearSalary}");
                 sw.Close();
             }
@@ -123,10 +124,13 @@ namespace Zadanie
             EmplWorkplace = emplWorkplace;
         }
 
-        public async Task ShowAllEmployees(ListView listView1, Employee emp, Label lblTaskInfo)
+        public async Task ShowAllEmployees(ListView listView1, Employee emp, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
         {
             listView1.Items.Clear();
             listView1.Visible = false;
+            btnDodajPracownika.Enabled = false;
+            btnWyswietlWszystkichPracownikow.Enabled = false;
+            btnImportFromDataBase.Enabled = false;
             int counter = 0;
             int emplCount = emp.employees.Count();
             int Lp = 1;
@@ -135,6 +139,7 @@ namespace Zadanie
             lblTaskInfo.Text = "Wczytuję... \n";
             await Task.Run(() =>
             {
+                
                 foreach (var item in emp.employees)
                 {
                     var item_list = new ListViewItem(new[] {
@@ -159,11 +164,14 @@ namespace Zadanie
                     {
                         precent++;
                         lblTaskInfo.Invoke((MethodInvoker)(() => { lblTaskInfo.Text = "Wczytano " + precent + "%"; }));
-                        //lblTaskInfo.Invoke((MethodInvoker)(() => { lblTaskInfo.Text += "*"; }));
+                        progressBar1.Invoke((MethodInvoker)(() => { progressBar1.Value = precent; }));
                         counter = 0;
                     }
                 }
             });
+            btnImportFromDataBase.Enabled = true;
+            btnWyswietlWszystkichPracownikow.Enabled = true;
+            btnDodajPracownika.Enabled = true;
             listView1.Visible = true;
             lblTaskInfo.Text = "Wgrano listę pracowników";
         }
@@ -172,7 +180,7 @@ namespace Zadanie
         {
             await Task.Run(() =>
             {
-                for (int i = 0; i < 100000; i++)
+                for (int i = 0; i < 50000; i++)
                 {
                     employees.Add(new Employee("Łukasz", "Kazimierczak", DateTime.Parse("1/10/1982"),
                                   new Address("Krakow", "Pocztowa", "33-333"),
@@ -184,6 +192,40 @@ namespace Zadanie
                 }
             });
             lblTaskInfo.Text = "Zaimportowano";
+        }
+
+        public void ImportFromFile(Label lblTaskInfo)
+        {
+            string line;
+            string[] empl;
+            var sr = new StreamReader(path);
+            employees.Clear();
+            bool firstLine = false;
+            
+            while (!sr.EndOfStream)
+            {
+                Employee employee = new Employee();
+                line = sr.ReadLine();
+                if (firstLine == false)
+                {
+                    firstLine = true;
+                    continue;
+                }
+                empl = line.Split('|');
+                employee.FirstName = empl[0];
+                employee.LastName = empl[1];
+                employee.BirthDate = DateTime.Parse(empl[2]);
+                employee.LifeAddress = new Address(empl[3], empl[4], empl[5]);
+                employee.EmplWorkplace = new Workplace(
+                    DateTime.Parse(empl[8]),
+                    empl[6],
+                    (Workplace.Workplaces)Enum.Parse(typeof(Workplace.Workplaces), empl[7], true),
+                    float.Parse(empl[11]),
+                    Int32.Parse(empl[9]),
+                    Int32.Parse(empl[10]));
+                employees.Add(employee);
+            }
+            sr.Close();
         }
     }
 }

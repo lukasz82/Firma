@@ -32,3 +32,8 @@ Edward|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrek
 Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
