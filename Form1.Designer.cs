@@ -32,8 +32,14 @@
             this.tabStronaGlowna = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPracownicy = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnSearchUserByName = new System.Windows.Forms.Button();
+            this.txtFindUserByName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnLoadFromFile = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.comboSelectEmplFromDepartment = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnImportFromDataBase = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -77,9 +83,6 @@
             this.txtAddDepartment = new System.Windows.Forms.TextBox();
             this.lblAddDepartment = new System.Windows.Forms.Label();
             this.btnAddDepartment = new System.Windows.Forms.Button();
-            this.comboSelectEmplFromDepartment = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.Departments.SuspendLayout();
             this.tabStronaGlowna.SuspendLayout();
             this.tabPracownicy.SuspendLayout();
@@ -105,7 +108,7 @@
             this.tabStronaGlowna.Location = new System.Drawing.Point(4, 22);
             this.tabStronaGlowna.Name = "tabStronaGlowna";
             this.tabStronaGlowna.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStronaGlowna.Size = new System.Drawing.Size(772, 425);
+            this.tabStronaGlowna.Size = new System.Drawing.Size(1003, 441);
             this.tabStronaGlowna.TabIndex = 0;
             this.tabStronaGlowna.Text = "StronaGlowna";
             this.tabStronaGlowna.UseVisualStyleBackColor = true;
@@ -126,6 +129,9 @@
             // tabPracownicy
             // 
             this.tabPracownicy.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPracownicy.Controls.Add(this.label15);
+            this.tabPracownicy.Controls.Add(this.btnSearchUserByName);
+            this.tabPracownicy.Controls.Add(this.txtFindUserByName);
             this.tabPracownicy.Controls.Add(this.label13);
             this.tabPracownicy.Controls.Add(this.label14);
             this.tabPracownicy.Controls.Add(this.btnLoadFromFile);
@@ -144,6 +150,49 @@
             this.tabPracownicy.Text = "Pracownicy";
             this.tabPracownicy.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(796, 132);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(97, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Szukaj pracownika";
+            // 
+            // btnSearchUserByName
+            // 
+            this.btnSearchUserByName.Location = new System.Drawing.Point(923, 151);
+            this.btnSearchUserByName.Name = "btnSearchUserByName";
+            this.btnSearchUserByName.Size = new System.Drawing.Size(36, 20);
+            this.btnSearchUserByName.TabIndex = 8;
+            this.btnSearchUserByName.Text = "OK";
+            this.btnSearchUserByName.UseVisualStyleBackColor = true;
+            this.btnSearchUserByName.Click += new System.EventHandler(this.btnSearchUserByName_Click);
+            // 
+            // txtFindUserByName
+            // 
+            this.txtFindUserByName.Location = new System.Drawing.Point(796, 151);
+            this.txtFindUserByName.Name = "txtFindUserByName";
+            this.txtFindUserByName.Size = new System.Drawing.Size(121, 20);
+            this.txtFindUserByName.TabIndex = 7;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(793, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Filtruj:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(793, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Dział";
+            // 
             // btnLoadFromFile
             // 
             this.btnLoadFromFile.Location = new System.Drawing.Point(9, 380);
@@ -160,6 +209,15 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(442, 19);
             this.progressBar1.TabIndex = 5;
+            // 
+            // comboSelectEmplFromDepartment
+            // 
+            this.comboSelectEmplFromDepartment.FormattingEnabled = true;
+            this.comboSelectEmplFromDepartment.Location = new System.Drawing.Point(796, 69);
+            this.comboSelectEmplFromDepartment.Name = "comboSelectEmplFromDepartment";
+            this.comboSelectEmplFromDepartment.Size = new System.Drawing.Size(121, 21);
+            this.comboSelectEmplFromDepartment.TabIndex = 1;
+            this.comboSelectEmplFromDepartment.SelectedIndexChanged += new System.EventHandler(this.comboSelectEmplFromDepartment_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -244,7 +302,7 @@
             this.tabDodajPracownika.Controls.Add(this.lblFirstName);
             this.tabDodajPracownika.Location = new System.Drawing.Point(4, 22);
             this.tabDodajPracownika.Name = "tabDodajPracownika";
-            this.tabDodajPracownika.Size = new System.Drawing.Size(772, 425);
+            this.tabDodajPracownika.Size = new System.Drawing.Size(1003, 441);
             this.tabDodajPracownika.TabIndex = 2;
             this.tabDodajPracownika.Text = "Dodaj Pracownika";
             // 
@@ -494,7 +552,7 @@
             this.Department.Controls.Add(this.btnAddDepartment);
             this.Department.Location = new System.Drawing.Point(4, 22);
             this.Department.Name = "Department";
-            this.Department.Size = new System.Drawing.Size(772, 425);
+            this.Department.Size = new System.Drawing.Size(1003, 441);
             this.Department.TabIndex = 3;
             this.Department.Text = "Dział";
             // 
@@ -578,32 +636,6 @@
             this.btnAddDepartment.UseVisualStyleBackColor = true;
             this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
-            // comboSelectEmplFromDepartment
-            // 
-            this.comboSelectEmplFromDepartment.FormattingEnabled = true;
-            this.comboSelectEmplFromDepartment.Location = new System.Drawing.Point(796, 69);
-            this.comboSelectEmplFromDepartment.Name = "comboSelectEmplFromDepartment";
-            this.comboSelectEmplFromDepartment.Size = new System.Drawing.Size(121, 21);
-            this.comboSelectEmplFromDepartment.TabIndex = 1;
-            this.comboSelectEmplFromDepartment.SelectedIndexChanged += new System.EventHandler(this.comboSelectEmplFromDepartment_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.Location = new System.Drawing.Point(793, 6);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 20);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Filtruj:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(793, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Dział";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,6 +712,9 @@
         private System.Windows.Forms.ComboBox comboSelectEmplFromDepartment;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnSearchUserByName;
+        private System.Windows.Forms.TextBox txtFindUserByName;
     }
 }
 

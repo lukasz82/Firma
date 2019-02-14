@@ -43,3 +43,5 @@ Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|
 Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
 Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
 Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Anna|Kowalski|2019-02-14 00:00:00|Katowice|Partyzantów|44-222|Marketing|Asystent|2019-02-14 00:00:00|777888999|0|500000
+Anna|Kowalski|2019-02-14 00:00:00|Katowice|Partyzantów|44-222|Testowy|Asystent|2019-02-14 00:00:00|777888999|0|500000

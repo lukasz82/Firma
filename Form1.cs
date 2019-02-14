@@ -15,6 +15,7 @@ namespace Zadanie
         public Form1()
         {
             InitializeComponent();
+            this.txtFindUserByName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -96,7 +97,6 @@ namespace Zadanie
 
         private async void btnWyswietlWszystkichPracownikow_Click(object sender, EventArgs e)
         {
-            //await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
             await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
 
@@ -105,11 +105,29 @@ namespace Zadanie
             em.ImportFromFile(lblTaskInfo);
         }
 
+        // TODO: zapakować te funkcje w jedną klasę żeby nie powielać kodu
         private async void comboSelectEmplFromDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             em.ImportFromFile(lblTaskInfo);
             await em.SelectUsersFromDepartment(comboSelectEmplFromDepartment.Text);
             await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+        }
+
+        private async void btnSearchUserByName_Click(object sender, EventArgs e)
+        {
+            em.ImportFromFile(lblTaskInfo);
+            await em.FindserByName(txtFindUserByName.Text);
+            await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+        }
+        
+        private async void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                em.ImportFromFile(lblTaskInfo);
+                await em.FindserByName(txtFindUserByName.Text);
+                await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+            }
         }
     }
 }

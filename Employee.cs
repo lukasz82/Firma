@@ -26,6 +26,15 @@ namespace Zadanie
             path = currentDirectory + "\\Database\\Employes.txt";
         }
 
+        public Employee(string name, string lastName, DateTime birthDate, Address lifeAddress, Workplace emplWorkplace)
+        {
+            FirstName = name;
+            LastName = lastName;
+            BirthDate = birthDate;
+            LifeAddress = lifeAddress;
+            EmplWorkplace = emplWorkplace;
+        }
+
         public void Initialize(ref ListView listView1, ref ComboBox combDepartment, ref ComboBox combWorkplace, ref ComboBox  comboSelectEmplFromDepartment)
         {
             foreach (var items in Enum.GetValues(typeof(Workplace.Workplaces)))
@@ -107,18 +116,8 @@ namespace Zadanie
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"!!! ERROR: {ex.Message} !!!");
-                Console.WriteLine($"Niestety nie można dodać osoby");
+                MessageBox.Show("Nie można zapisać osoby, coś poszło nie tak: " + ex.Message);
             }
-        }
-
-        public Employee(string name, string lastName, DateTime birthDate, Address lifeAddress, Workplace emplWorkplace)
-        {
-            FirstName = name;
-            LastName = lastName;
-            BirthDate = birthDate;
-            LifeAddress = lifeAddress;
-            EmplWorkplace = emplWorkplace;
         }
 
         public async Task ShowAllEmployees(ListView listView1, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
@@ -232,6 +231,23 @@ namespace Zadanie
             employees.Clear();
             await Task.Run(() =>
             { 
+                foreach (var item in result)
+                {
+                    employees.Add(new Employee(item.FirstName, item.LastName, item.BirthDate,
+                                  new Address(item.LifeAddress.City, item.LifeAddress.Street, item.LifeAddress.ZIPcode),
+                                  new Workplace(item.EmplWorkplace.DateOfEmployment, item.EmplWorkplace.Department, item.EmplWorkplace.EmplWorkplace, item.EmplWorkplace.YearSalary, item.EmplWorkplace.PhoneNumber, item.EmplWorkplace.RoomNumber)));
+                }
+            });
+        }
+
+        public async Task FindserByName(string userEntered)
+        {
+            var result = employees
+                         .Where(x => x.LastName.Contains(userEntered) || x.FirstName.Contains(userEntered) || (x.FirstName + " " + x.LastName).Contains(userEntered) || (x.FirstName + x.LastName).Contains(userEntered))
+                         .Select(x => new { x.FirstName, x.LastName, x.BirthDate, x.LifeAddress, x.EmplWorkplace }).ToList();
+            employees.Clear();
+            await Task.Run(() =>
+            {
                 foreach (var item in result)
                 {
                     employees.Add(new Employee(item.FirstName, item.LastName, item.BirthDate,
