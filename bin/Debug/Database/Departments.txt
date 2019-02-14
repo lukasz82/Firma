@@ -1,5 +1,5 @@
 ﻿Księgowość|2
 Techniczny|2
 Dyrekcja|1
-Marketing|2
-Testowy|3
+Marketing|3
+Testowy|4
