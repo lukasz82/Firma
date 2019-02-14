@@ -37,3 +37,9 @@ Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01
 Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
 Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
 Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Kaka|Maka|2019-02-12 00:00:00|Warszawa|Partyzantów|32-620|Techniczny|Dyrektor|2018-09-27 00:00:00|0|4324|2344452
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000

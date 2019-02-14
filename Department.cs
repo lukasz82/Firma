@@ -8,31 +8,34 @@ namespace Zadanie
     public class Department
     {
         public string Name { get; set; }
+        public int DepartmentHierarchy { get; set; }
         public string path { get;}
         public int SelectedListItem { get; set; }
-        
+
         public List<Department> departments = new List<Department>();
 
         public Department()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             path = currentDirectory + "\\Database\\Departments.txt";
+
             //path = "D:\\programowanie\\net Core apki\\Dzien 3 cszarp\\Dzien 3 cszarp\\ZadanieFirma\\Zadanie\\Zadanie\\Database\\Departments.txt";
         }
 
-        public Department(string name)
+        public Department(string name, int hierarchy)
         {
             Name = name;
+            DepartmentHierarchy = hierarchy;
         }
 
-        public void Add(string name)
+        public void Add(string name, int hierarchy)
         {
             try
             {
                 var sw = new StreamWriter(path, append: true);
-                sw.WriteLine($"{name}");
+                sw.WriteLine($"{name}|{hierarchy}");
                 sw.Close();
-                Console.WriteLine($"Dodano dział {name}");
+                MessageBox.Show($"{name},{hierarchy}");
             }
             catch (Exception ex)
             {
@@ -43,12 +46,14 @@ namespace Zadanie
         public void LoadDepartmentsFromFile()
         {
             string line;
+            string[] items;
             var sr = new StreamReader(path);
             departments.Clear();
             while (!sr.EndOfStream)
             {
                 line = sr.ReadLine();
-                departments.Add(new Department(line));
+                items = line.Split('|');
+                departments.Add(new Department(items[0], Int32.Parse(items[1])));
             }
             sr.Close();
         }
@@ -69,28 +74,18 @@ namespace Zadanie
             listDepartments.Items.Clear();
             d.departments.Clear();
             listDepartments.Refresh();
-            string line;
-
-            try
+            LoadDepartmentsFromFile();
+            
+            foreach (var item in d.departments)
             {
-                var sr = new StreamReader(path);
-                while (!sr.EndOfStream)
-                {
-                    line = sr.ReadLine();
-                    d.departments.Add(new Department(line));
-                }
-                sr.Close();
+                listDepartments.Items.Add(item.Name + " (" + item.DepartmentHierarchy + ")");
+            }
 
-                foreach (var item in d.departments)
-                {
-                    listDepartments.Items.Add(item.Name);
-                }
+            if (d.departments.Count != SelectedListItem)
+            {
                 listDepartments.SetSelected(SelectedListItem, true);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Wystąpił jakiś błąd : " + ex.Message);
-            }
+            
         }
 
         public void Delete(ref ListBox listDepartments, Department d)
@@ -101,7 +96,11 @@ namespace Zadanie
             listDepartments.Items.Remove(selectedDepartmentName);
             listDepartments.Refresh();
             d.departments.RemoveAt(itemToRemove);
-            SelectedListItem = itemToRemove;
+
+            if (d.departments.Count != itemToRemove)
+            {
+                SelectedListItem = itemToRemove;
+            }
 
             int departmentsCount = d.departments.Count;
             try

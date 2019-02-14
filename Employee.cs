@@ -26,7 +26,7 @@ namespace Zadanie
             path = currentDirectory + "\\Database\\Employes.txt";
         }
 
-        public void Initialize(ref ListView listView1, ref ComboBox combDepartment, ref ComboBox combWorkplace)
+        public void Initialize(ref ListView listView1, ref ComboBox combDepartment, ref ComboBox combWorkplace, ref ComboBox  comboSelectEmplFromDepartment)
         {
             foreach (var items in Enum.GetValues(typeof(Workplace.Workplaces)))
             {
@@ -37,6 +37,7 @@ namespace Zadanie
             foreach (var departm in departs.departments)
             {
                 combDepartment.Items.Add(departm.Name);
+                comboSelectEmplFromDepartment.Items.Add(departm.Name);
             }
 
             listView1.Columns.Add("Lp.").Width = 50;
@@ -58,29 +59,25 @@ namespace Zadanie
         (
             ref TextBox txtEmployeeName,
             ref TextBox txtEmployeeSurname,
-            ref TextBox txtBirthDateDay,
-            ref TextBox txtBirthDateMonth,
-            ref TextBox txtBirthDateYear,
             ref TextBox txtAdressCity,
             ref TextBox txtAdressStreet,
             ref TextBox txtAdressZIPCode,
-            ref TextBox txtWorkplaceDateDay,
-            ref TextBox txtWorkplaceDateMonth,
-            ref TextBox txtWorkplaceDateYear,
             ref ComboBox combDepartment,
             ref ComboBox combWorkplace,
             ref TextBox txtWorkplaceIncome,
             ref TextBox txtWorkplacePhoneNumber,
-            ref TextBox txtWorkplaceRoomNumber
+            ref TextBox txtWorkplaceRoomNumber,
+            ref DateTimePicker dateTimeBrithDate,
+            ref DateTimePicker dateTimeWorkplace
         )
         {
             FirstName = txtEmployeeName.Text;
             LastName = txtEmployeeSurname.Text;
-            BirthDate = new DateTime(Int32.Parse(txtBirthDateYear.Text), Int32.Parse(txtBirthDateMonth.Text), Int32.Parse(txtBirthDateDay.Text));
+            BirthDate = DateTime.Parse(dateTimeBrithDate.Text);
             LifeAddress = new Address(txtAdressCity.Text, txtAdressStreet.Text, txtAdressZIPCode.Text);
             EmplWorkplace = new Workplace
             (
-                new DateTime(Int32.Parse(txtWorkplaceDateYear.Text), Int32.Parse(txtWorkplaceDateMonth.Text), Int32.Parse(txtWorkplaceDateDay.Text)),
+                DateTime.Parse(dateTimeWorkplace.Text),
                 combDepartment.Text,
                 // Parsowanie string do enum
                 (Workplace.Workplaces)Enum.Parse(typeof(Workplace.Workplaces), combWorkplace.Text, true),
@@ -124,7 +121,7 @@ namespace Zadanie
             EmplWorkplace = emplWorkplace;
         }
 
-        public async Task ShowAllEmployees(ListView listView1, Employee emp, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
+        public async Task ShowAllEmployees(ListView listView1, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
         {
             listView1.Items.Clear();
             listView1.Visible = false;
@@ -132,15 +129,14 @@ namespace Zadanie
             btnWyswietlWszystkichPracownikow.Enabled = false;
             btnImportFromDataBase.Enabled = false;
             int counter = 0;
-            int emplCount = emp.employees.Count();
+            int emplCount = employees.Count();
             int Lp = 1;
             float div = emplCount / 100;
             int precent = 0;
             lblTaskInfo.Text = "Wczytuję... \n";
             await Task.Run(() =>
             {
-                
-                foreach (var item in emp.employees)
+                foreach (var item in employees)
                 {
                     var item_list = new ListViewItem(new[] {
                     Lp.ToString(),
@@ -226,6 +222,23 @@ namespace Zadanie
                 employees.Add(employee);
             }
             sr.Close();
+        }
+
+        public async Task SelectUsersFromDepartment(string selectedDepartment)
+        {
+            var result = employees
+                         .Where(x => x.EmplWorkplace.Department.Equals(selectedDepartment))
+                         .Select(x => new { x.FirstName, x.LastName, x.BirthDate, x.LifeAddress, x.EmplWorkplace}).ToList();
+            employees.Clear();
+            await Task.Run(() =>
+            { 
+                foreach (var item in result)
+                {
+                    employees.Add(new Employee(item.FirstName, item.LastName, item.BirthDate,
+                                  new Address(item.LifeAddress.City, item.LifeAddress.Street, item.LifeAddress.ZIPcode),
+                                  new Workplace(item.EmplWorkplace.DateOfEmployment, item.EmplWorkplace.Department, item.EmplWorkplace.EmplWorkplace, item.EmplWorkplace.YearSalary, item.EmplWorkplace.PhoneNumber, item.EmplWorkplace.RoomNumber)));
+                }
+            });
         }
     }
 }

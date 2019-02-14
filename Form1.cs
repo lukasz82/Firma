@@ -37,7 +37,7 @@ namespace Zadanie
         {
             if (txtAddDepartment.Text != "")
             {
-                d.Add(txtAddDepartment.Text);
+                d.Add(txtAddDepartment.Text, Int32.Parse(txtDepartmentHierarchy.Text));
                 d.Show(ref listDepartments, d);
                 d.RefreshCombDepartment(ref combDepartment);
             }
@@ -70,26 +70,22 @@ namespace Zadanie
             em.Add(
                 ref txtEmployeeName,
                 ref txtEmployeeSurname,
-                ref txtBirthDateDay,
-                ref txtBirthDateMonth,
-                ref txtBirthDateYear,
                 ref txtAdressCity,
                 ref txtAdressStreet,
                 ref txtAdressZIPCode,
-                ref txtWorkplaceDateDay,
-                ref txtWorkplaceDateMonth,
-                ref txtWorkplaceDateYear,
                 ref combDepartment,
                 ref combWorkplace,
                 ref txtWorkplaceIncome,
                 ref txtWorkplacePhoneNumber,
-                ref txtWorkplaceRoomNumber);
+                ref txtWorkplaceRoomNumber,
+                ref dateTimeBrithDate,
+                ref dateTimeWorkplace);
         }
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            em.Initialize(ref listView1, ref combDepartment, ref combWorkplace);
-            await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+            em.Initialize(ref listView1, ref combDepartment, ref combWorkplace, ref comboSelectEmplFromDepartment);
+            await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
             d.Show(ref listDepartments, d);
         }
 
@@ -100,12 +96,20 @@ namespace Zadanie
 
         private async void btnWyswietlWszystkichPracownikow_Click(object sender, EventArgs e)
         {
-            await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+            //await em.ShowAllEmployees(listView1, em, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
+            await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
 
         private void btnLoadFromFile_Click(object sender, EventArgs e)
         {
             em.ImportFromFile(lblTaskInfo);
+        }
+
+        private async void comboSelectEmplFromDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            em.ImportFromFile(lblTaskInfo);
+            await em.SelectUsersFromDepartment(comboSelectEmplFromDepartment.Text);
+            await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
     }
 }

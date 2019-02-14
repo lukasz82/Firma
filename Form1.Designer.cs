@@ -30,6 +30,7 @@
         {
             this.Departments = new System.Windows.Forms.TabControl();
             this.tabStronaGlowna = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabPracownicy = new System.Windows.Forms.TabPage();
             this.btnLoadFromFile = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -39,12 +40,9 @@
             this.btnWyswietlWszystkichPracownikow = new System.Windows.Forms.Button();
             this.lblTaskInfo = new System.Windows.Forms.Label();
             this.tabDodajPracownika = new System.Windows.Forms.TabPage();
-            this.txtWorkplaceDateYear = new System.Windows.Forms.TextBox();
-            this.txtWorkplaceDateMonth = new System.Windows.Forms.TextBox();
-            this.txtBirthDateYear = new System.Windows.Forms.TextBox();
+            this.dateTimeWorkplace = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeBrithDate = new System.Windows.Forms.DateTimePicker();
             this.btnDodajPracownika = new System.Windows.Forms.Button();
-            this.txtBirthDateMonth = new System.Windows.Forms.TextBox();
-            this.txtBirthDateDay = new System.Windows.Forms.TextBox();
             this.lblBirthDate = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtWorkplacePhoneNumber = new System.Windows.Forms.TextBox();
             this.txtWorkplaceIncome = new System.Windows.Forms.TextBox();
-            this.txtWorkplaceDateDay = new System.Windows.Forms.TextBox();
             this.txtAdressZIPCode = new System.Windows.Forms.TextBox();
             this.txtAdressStreet = new System.Windows.Forms.TextBox();
             this.txtAdressCity = new System.Windows.Forms.TextBox();
@@ -71,13 +68,20 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.Department = new System.Windows.Forms.TabPage();
+            this.txtDepartmentHierarchy = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnDepartmentDelete = new System.Windows.Forms.Button();
             this.btnShowDepartment = new System.Windows.Forms.Button();
             this.listDepartments = new System.Windows.Forms.ListBox();
             this.txtAddDepartment = new System.Windows.Forms.TextBox();
             this.lblAddDepartment = new System.Windows.Forms.Label();
             this.btnAddDepartment = new System.Windows.Forms.Button();
+            this.comboSelectEmplFromDepartment = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.Departments.SuspendLayout();
+            this.tabStronaGlowna.SuspendLayout();
             this.tabPracownicy.SuspendLayout();
             this.tabDodajPracownika.SuspendLayout();
             this.Department.SuspendLayout();
@@ -92,11 +96,12 @@
             this.Departments.Location = new System.Drawing.Point(12, 12);
             this.Departments.Name = "Departments";
             this.Departments.SelectedIndex = 0;
-            this.Departments.Size = new System.Drawing.Size(780, 451);
+            this.Departments.Size = new System.Drawing.Size(1011, 467);
             this.Departments.TabIndex = 0;
             // 
             // tabStronaGlowna
             // 
+            this.tabStronaGlowna.Controls.Add(this.label12);
             this.tabStronaGlowna.Location = new System.Drawing.Point(4, 22);
             this.tabStronaGlowna.Name = "tabStronaGlowna";
             this.tabStronaGlowna.Padding = new System.Windows.Forms.Padding(3);
@@ -106,10 +111,26 @@
             this.tabStronaGlowna.UseVisualStyleBackColor = true;
             this.tabStronaGlowna.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(3, 3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(768, 422);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Baza Pracowników";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPracownicy
             // 
+            this.tabPracownicy.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPracownicy.Controls.Add(this.label13);
+            this.tabPracownicy.Controls.Add(this.label14);
             this.tabPracownicy.Controls.Add(this.btnLoadFromFile);
             this.tabPracownicy.Controls.Add(this.progressBar1);
+            this.tabPracownicy.Controls.Add(this.comboSelectEmplFromDepartment);
             this.tabPracownicy.Controls.Add(this.label9);
             this.tabPracownicy.Controls.Add(this.btnImportFromDataBase);
             this.tabPracownicy.Controls.Add(this.listView1);
@@ -118,10 +139,9 @@
             this.tabPracownicy.Location = new System.Drawing.Point(4, 22);
             this.tabPracownicy.Name = "tabPracownicy";
             this.tabPracownicy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPracownicy.Size = new System.Drawing.Size(772, 425);
+            this.tabPracownicy.Size = new System.Drawing.Size(1003, 441);
             this.tabPracownicy.TabIndex = 1;
             this.tabPracownicy.Text = "Pracownicy";
-            this.tabPracownicy.UseVisualStyleBackColor = true;
             this.tabPracownicy.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // btnLoadFromFile
@@ -195,12 +215,9 @@
             // tabDodajPracownika
             // 
             this.tabDodajPracownika.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabDodajPracownika.Controls.Add(this.txtWorkplaceDateYear);
-            this.tabDodajPracownika.Controls.Add(this.txtWorkplaceDateMonth);
-            this.tabDodajPracownika.Controls.Add(this.txtBirthDateYear);
+            this.tabDodajPracownika.Controls.Add(this.dateTimeWorkplace);
+            this.tabDodajPracownika.Controls.Add(this.dateTimeBrithDate);
             this.tabDodajPracownika.Controls.Add(this.btnDodajPracownika);
-            this.tabDodajPracownika.Controls.Add(this.txtBirthDateMonth);
-            this.tabDodajPracownika.Controls.Add(this.txtBirthDateDay);
             this.tabDodajPracownika.Controls.Add(this.lblBirthDate);
             this.tabDodajPracownika.Controls.Add(this.label8);
             this.tabDodajPracownika.Controls.Add(this.label7);
@@ -215,7 +232,6 @@
             this.tabDodajPracownika.Controls.Add(this.label1);
             this.tabDodajPracownika.Controls.Add(this.txtWorkplacePhoneNumber);
             this.tabDodajPracownika.Controls.Add(this.txtWorkplaceIncome);
-            this.tabDodajPracownika.Controls.Add(this.txtWorkplaceDateDay);
             this.tabDodajPracownika.Controls.Add(this.txtAdressZIPCode);
             this.tabDodajPracownika.Controls.Add(this.txtAdressStreet);
             this.tabDodajPracownika.Controls.Add(this.txtAdressCity);
@@ -232,26 +248,19 @@
             this.tabDodajPracownika.TabIndex = 2;
             this.tabDodajPracownika.Text = "Dodaj Pracownika";
             // 
-            // txtWorkplaceDateYear
+            // dateTimeWorkplace
             // 
-            this.txtWorkplaceDateYear.Location = new System.Drawing.Point(270, 206);
-            this.txtWorkplaceDateYear.Name = "txtWorkplaceDateYear";
-            this.txtWorkplaceDateYear.Size = new System.Drawing.Size(60, 20);
-            this.txtWorkplaceDateYear.TabIndex = 16;
+            this.dateTimeWorkplace.Location = new System.Drawing.Point(335, 206);
+            this.dateTimeWorkplace.Name = "dateTimeWorkplace";
+            this.dateTimeWorkplace.Size = new System.Drawing.Size(153, 20);
+            this.dateTimeWorkplace.TabIndex = 29;
             // 
-            // txtWorkplaceDateMonth
+            // dateTimeBrithDate
             // 
-            this.txtWorkplaceDateMonth.Location = new System.Drawing.Point(222, 206);
-            this.txtWorkplaceDateMonth.Name = "txtWorkplaceDateMonth";
-            this.txtWorkplaceDateMonth.Size = new System.Drawing.Size(40, 20);
-            this.txtWorkplaceDateMonth.TabIndex = 15;
-            // 
-            // txtBirthDateYear
-            // 
-            this.txtBirthDateYear.Location = new System.Drawing.Point(480, 45);
-            this.txtBirthDateYear.Name = "txtBirthDateYear";
-            this.txtBirthDateYear.Size = new System.Drawing.Size(60, 20);
-            this.txtBirthDateYear.TabIndex = 10;
+            this.dateTimeBrithDate.Location = new System.Drawing.Point(335, 55);
+            this.dateTimeBrithDate.Name = "dateTimeBrithDate";
+            this.dateTimeBrithDate.Size = new System.Drawing.Size(152, 20);
+            this.dateTimeBrithDate.TabIndex = 28;
             // 
             // btnDodajPracownika
             // 
@@ -263,24 +272,10 @@
             this.btnDodajPracownika.UseVisualStyleBackColor = true;
             this.btnDodajPracownika.Click += new System.EventHandler(this.btnDodajPracownika_Click);
             // 
-            // txtBirthDateMonth
-            // 
-            this.txtBirthDateMonth.Location = new System.Drawing.Point(434, 45);
-            this.txtBirthDateMonth.Name = "txtBirthDateMonth";
-            this.txtBirthDateMonth.Size = new System.Drawing.Size(40, 20);
-            this.txtBirthDateMonth.TabIndex = 9;
-            // 
-            // txtBirthDateDay
-            // 
-            this.txtBirthDateDay.Location = new System.Drawing.Point(388, 45);
-            this.txtBirthDateDay.Name = "txtBirthDateDay";
-            this.txtBirthDateDay.Size = new System.Drawing.Size(40, 20);
-            this.txtBirthDateDay.TabIndex = 8;
-            // 
             // lblBirthDate
             // 
             this.lblBirthDate.AutoSize = true;
-            this.lblBirthDate.Location = new System.Drawing.Point(386, 17);
+            this.lblBirthDate.Location = new System.Drawing.Point(355, 27);
             this.lblBirthDate.Name = "lblBirthDate";
             this.lblBirthDate.Size = new System.Drawing.Size(115, 13);
             this.lblBirthDate.TabIndex = 27;
@@ -289,7 +284,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(394, 236);
+            this.label8.Location = new System.Drawing.Point(394, 244);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 26;
@@ -298,7 +293,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(291, 236);
+            this.label7.Location = new System.Drawing.Point(289, 244);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 25;
@@ -307,7 +302,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(211, 236);
+            this.label6.Location = new System.Drawing.Point(206, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 24;
@@ -316,7 +311,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(174, 190);
+            this.label5.Location = new System.Drawing.Point(173, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 13);
             this.label5.TabIndex = 23;
@@ -325,7 +320,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(404, 108);
+            this.label4.Location = new System.Drawing.Point(403, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 22;
@@ -334,7 +329,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(316, 108);
+            this.label3.Location = new System.Drawing.Point(313, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 21;
@@ -343,7 +338,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(211, 108);
+            this.label2.Location = new System.Drawing.Point(205, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 20;
@@ -352,7 +347,7 @@
             // combWorkplace
             // 
             this.combWorkplace.FormattingEnabled = true;
-            this.combWorkplace.Location = new System.Drawing.Point(284, 257);
+            this.combWorkplace.Location = new System.Drawing.Point(283, 269);
             this.combWorkplace.Name = "combWorkplace";
             this.combWorkplace.Size = new System.Drawing.Size(99, 21);
             this.combWorkplace.TabIndex = 18;
@@ -361,7 +356,7 @@
             // combDepartment
             // 
             this.combDepartment.FormattingEnabled = true;
-            this.combDepartment.Location = new System.Drawing.Point(177, 257);
+            this.combDepartment.Location = new System.Drawing.Point(176, 269);
             this.combDepartment.Name = "combDepartment";
             this.combDepartment.Size = new System.Drawing.Size(100, 21);
             this.combDepartment.TabIndex = 17;
@@ -369,15 +364,16 @@
             // 
             // txtWorkplaceRoomNumber
             // 
-            this.txtWorkplaceRoomNumber.Location = new System.Drawing.Point(176, 342);
+            this.txtWorkplaceRoomNumber.Location = new System.Drawing.Point(175, 343);
             this.txtWorkplaceRoomNumber.Name = "txtWorkplaceRoomNumber";
             this.txtWorkplaceRoomNumber.Size = new System.Drawing.Size(100, 20);
             this.txtWorkplaceRoomNumber.TabIndex = 21;
+            this.txtWorkplaceRoomNumber.Text = "234";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 342);
+            this.label1.Location = new System.Drawing.Point(33, 343);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 16;
@@ -385,64 +381,64 @@
             // 
             // txtWorkplacePhoneNumber
             // 
-            this.txtWorkplacePhoneNumber.Location = new System.Drawing.Point(176, 306);
+            this.txtWorkplacePhoneNumber.Location = new System.Drawing.Point(175, 307);
             this.txtWorkplacePhoneNumber.Name = "txtWorkplacePhoneNumber";
             this.txtWorkplacePhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.txtWorkplacePhoneNumber.TabIndex = 20;
+            this.txtWorkplacePhoneNumber.Text = "777888999";
             // 
             // txtWorkplaceIncome
             // 
-            this.txtWorkplaceIncome.Location = new System.Drawing.Point(389, 257);
+            this.txtWorkplaceIncome.Location = new System.Drawing.Point(388, 269);
             this.txtWorkplaceIncome.Name = "txtWorkplaceIncome";
             this.txtWorkplaceIncome.Size = new System.Drawing.Size(100, 20);
             this.txtWorkplaceIncome.TabIndex = 19;
-            // 
-            // txtWorkplaceDateDay
-            // 
-            this.txtWorkplaceDateDay.Location = new System.Drawing.Point(176, 206);
-            this.txtWorkplaceDateDay.Name = "txtWorkplaceDateDay";
-            this.txtWorkplaceDateDay.Size = new System.Drawing.Size(40, 20);
-            this.txtWorkplaceDateDay.TabIndex = 14;
+            this.txtWorkplaceIncome.Text = "500000";
             // 
             // txtAdressZIPCode
             // 
-            this.txtAdressZIPCode.Location = new System.Drawing.Point(388, 127);
+            this.txtAdressZIPCode.Location = new System.Drawing.Point(387, 132);
             this.txtAdressZIPCode.Name = "txtAdressZIPCode";
             this.txtAdressZIPCode.Size = new System.Drawing.Size(100, 20);
             this.txtAdressZIPCode.TabIndex = 13;
+            this.txtAdressZIPCode.Text = "44-222";
             // 
             // txtAdressStreet
             // 
-            this.txtAdressStreet.Location = new System.Drawing.Point(282, 127);
+            this.txtAdressStreet.Location = new System.Drawing.Point(281, 132);
             this.txtAdressStreet.Name = "txtAdressStreet";
             this.txtAdressStreet.Size = new System.Drawing.Size(100, 20);
             this.txtAdressStreet.TabIndex = 12;
+            this.txtAdressStreet.Text = "Partyzantów";
             // 
             // txtAdressCity
             // 
-            this.txtAdressCity.Location = new System.Drawing.Point(176, 127);
+            this.txtAdressCity.Location = new System.Drawing.Point(175, 132);
             this.txtAdressCity.Name = "txtAdressCity";
             this.txtAdressCity.Size = new System.Drawing.Size(100, 20);
             this.txtAdressCity.TabIndex = 11;
+            this.txtAdressCity.Text = "Katowice";
             // 
             // txtEmployeeSurname
             // 
-            this.txtEmployeeSurname.Location = new System.Drawing.Point(108, 45);
+            this.txtEmployeeSurname.Location = new System.Drawing.Point(108, 55);
             this.txtEmployeeSurname.Name = "txtEmployeeSurname";
-            this.txtEmployeeSurname.Size = new System.Drawing.Size(225, 20);
+            this.txtEmployeeSurname.Size = new System.Drawing.Size(169, 20);
             this.txtEmployeeSurname.TabIndex = 7;
+            this.txtEmployeeSurname.Text = "Kowalski";
             // 
             // txtEmployeeName
             // 
-            this.txtEmployeeName.Location = new System.Drawing.Point(108, 14);
+            this.txtEmployeeName.Location = new System.Drawing.Point(108, 24);
             this.txtEmployeeName.Name = "txtEmployeeName";
-            this.txtEmployeeName.Size = new System.Drawing.Size(225, 20);
+            this.txtEmployeeName.Size = new System.Drawing.Size(168, 20);
             this.txtEmployeeName.TabIndex = 6;
+            this.txtEmployeeName.Text = "Jan";
             // 
             // lblTelefon
             // 
             this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(31, 306);
+            this.lblTelefon.Location = new System.Drawing.Point(30, 307);
             this.lblTelefon.Name = "lblTelefon";
             this.lblTelefon.Size = new System.Drawing.Size(93, 13);
             this.lblTelefon.TabIndex = 5;
@@ -451,7 +447,7 @@
             // lblStanowisko
             // 
             this.lblStanowisko.AutoSize = true;
-            this.lblStanowisko.Location = new System.Drawing.Point(31, 209);
+            this.lblStanowisko.Location = new System.Drawing.Point(31, 206);
             this.lblStanowisko.Name = "lblStanowisko";
             this.lblStanowisko.Size = new System.Drawing.Size(92, 13);
             this.lblStanowisko.TabIndex = 4;
@@ -460,7 +456,7 @@
             // lblLifeAddress
             // 
             this.lblLifeAddress.AutoSize = true;
-            this.lblLifeAddress.Location = new System.Drawing.Point(31, 130);
+            this.lblLifeAddress.Location = new System.Drawing.Point(30, 135);
             this.lblLifeAddress.Name = "lblLifeAddress";
             this.lblLifeAddress.Size = new System.Drawing.Size(102, 13);
             this.lblLifeAddress.TabIndex = 3;
@@ -469,7 +465,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(31, 48);
+            this.lblLastName.Location = new System.Drawing.Point(31, 58);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(53, 13);
             this.lblLastName.TabIndex = 2;
@@ -478,7 +474,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(31, 17);
+            this.lblFirstName.Location = new System.Drawing.Point(31, 27);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(26, 13);
             this.lblFirstName.TabIndex = 1;
@@ -487,6 +483,9 @@
             // Department
             // 
             this.Department.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Department.Controls.Add(this.txtDepartmentHierarchy);
+            this.Department.Controls.Add(this.label11);
+            this.Department.Controls.Add(this.label10);
             this.Department.Controls.Add(this.btnDepartmentDelete);
             this.Department.Controls.Add(this.btnShowDepartment);
             this.Department.Controls.Add(this.listDepartments);
@@ -498,6 +497,31 @@
             this.Department.Size = new System.Drawing.Size(772, 425);
             this.Department.TabIndex = 3;
             this.Department.Text = "Dział";
+            // 
+            // txtDepartmentHierarchy
+            // 
+            this.txtDepartmentHierarchy.Location = new System.Drawing.Point(462, 32);
+            this.txtDepartmentHierarchy.Name = "txtDepartmentHierarchy";
+            this.txtDepartmentHierarchy.Size = new System.Drawing.Size(44, 20);
+            this.txtDepartmentHierarchy.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(401, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Hierarchia";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(119, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Nazwa";
             // 
             // btnDepartmentDelete
             // 
@@ -530,9 +554,9 @@
             // 
             // txtAddDepartment
             // 
-            this.txtAddDepartment.Location = new System.Drawing.Point(122, 34);
+            this.txtAddDepartment.Location = new System.Drawing.Point(165, 32);
             this.txtAddDepartment.Name = "txtAddDepartment";
-            this.txtAddDepartment.Size = new System.Drawing.Size(626, 20);
+            this.txtAddDepartment.Size = new System.Drawing.Size(210, 20);
             this.txtAddDepartment.TabIndex = 2;
             // 
             // lblAddDepartment
@@ -554,18 +578,46 @@
             this.btnAddDepartment.UseVisualStyleBackColor = true;
             this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
+            // comboSelectEmplFromDepartment
+            // 
+            this.comboSelectEmplFromDepartment.FormattingEnabled = true;
+            this.comboSelectEmplFromDepartment.Location = new System.Drawing.Point(796, 69);
+            this.comboSelectEmplFromDepartment.Name = "comboSelectEmplFromDepartment";
+            this.comboSelectEmplFromDepartment.Size = new System.Drawing.Size(121, 21);
+            this.comboSelectEmplFromDepartment.TabIndex = 1;
+            this.comboSelectEmplFromDepartment.SelectedIndexChanged += new System.EventHandler(this.comboSelectEmplFromDepartment_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(793, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Filtruj:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(793, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Dział";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(803, 516);
+            this.ClientSize = new System.Drawing.Size(1035, 542);
             this.Controls.Add(this.Departments);
             this.Name = "Form1";
             this.Text = "Baza Pracowników";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Departments.ResumeLayout(false);
+            this.tabStronaGlowna.ResumeLayout(false);
             this.tabPracownicy.ResumeLayout(false);
+            this.tabPracownicy.PerformLayout();
             this.tabDodajPracownika.ResumeLayout(false);
             this.tabDodajPracownika.PerformLayout();
             this.Department.ResumeLayout(false);
@@ -589,12 +641,7 @@
         private System.Windows.Forms.Button btnShowDepartment;
         private System.Windows.Forms.Button btnDepartmentDelete;
         private System.Windows.Forms.TabPage tabDodajPracownika;
-        private System.Windows.Forms.TextBox txtWorkplaceDateYear;
-        private System.Windows.Forms.TextBox txtWorkplaceDateMonth;
-        private System.Windows.Forms.TextBox txtBirthDateYear;
         private System.Windows.Forms.Button btnDodajPracownika;
-        private System.Windows.Forms.TextBox txtBirthDateMonth;
-        private System.Windows.Forms.TextBox txtBirthDateDay;
         private System.Windows.Forms.Label lblBirthDate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -609,7 +656,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtWorkplacePhoneNumber;
         private System.Windows.Forms.TextBox txtWorkplaceIncome;
-        private System.Windows.Forms.TextBox txtWorkplaceDateDay;
         private System.Windows.Forms.TextBox txtAdressZIPCode;
         private System.Windows.Forms.TextBox txtAdressStreet;
         private System.Windows.Forms.TextBox txtAdressCity;
@@ -625,6 +671,15 @@
         private System.Windows.Forms.Label lblTaskInfo;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnLoadFromFile;
+        private System.Windows.Forms.DateTimePicker dateTimeWorkplace;
+        private System.Windows.Forms.DateTimePicker dateTimeBrithDate;
+        private System.Windows.Forms.TextBox txtDepartmentHierarchy;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboSelectEmplFromDepartment;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }
 
