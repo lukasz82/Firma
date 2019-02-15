@@ -144,6 +144,7 @@ namespace Zadanie
         private async void btnRemoveSelectedEmployees_Click(object sender, EventArgs e)
         {
             em.Delete(listView1);
+            em.ImportFromFile(lblTaskInfo);
             await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
     }

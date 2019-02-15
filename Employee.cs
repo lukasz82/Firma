@@ -127,18 +127,18 @@ namespace Zadanie
             {
                 selectedItemsIndex[i] = int.Parse(listView1.SelectedItems[i].Text);
             }
-            string selectedItems = listView1.SelectedItems[0].Text;
+
+            var file = new List<string>(System.IO.File.ReadAllLines(path));
+            int indexCount = 0;
             foreach (var item in selectedItemsIndex)
             {
-                employees.RemoveAt(item);
-                listView1.Items.RemoveAt(item);
-
-                var file = new List<string>(System.IO.File.ReadAllLines(path));
-                file.RemoveAt(item);
-                File.WriteAllLines(path, file.ToArray());
-
+                //employees.RemoveAt(item-1);
+                //listView1.Items.RemoveAt(item-1);
+                file.RemoveAt(item-indexCount);
                 MessageBox.Show(item.ToString());
+                indexCount++;
             }
+            File.WriteAllLines(path, file.ToArray());
         }
 
         public async Task ShowAllEmployees(ListView listView1, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
