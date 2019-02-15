@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -85,6 +86,9 @@ namespace Zadanie
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            listView1.GridLines = true;
+            listView1.MultiSelect = true;
+            listView1.FullRowSelect = true;
             em.Initialize(ref listView1, ref combDepartment, ref combWorkplace, ref comboSelectEmplFromDepartment);
             await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
             d.Show(ref listDepartments, d);
@@ -116,7 +120,7 @@ namespace Zadanie
         private async void btnSearchUserByName_Click(object sender, EventArgs e)
         {
             em.ImportFromFile(lblTaskInfo);
-            await em.FindserByName(txtFindUserByName.Text);
+            await em.FindUserByName(txtFindUserByName.Text);
             await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
         
@@ -125,9 +129,22 @@ namespace Zadanie
             if (e.KeyChar == (char)Keys.Return)
             {
                 em.ImportFromFile(lblTaskInfo);
-                await em.FindserByName(txtFindUserByName.Text);
+                await em.FindUserByName(txtFindUserByName.Text);
                 await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
             }
+        }
+
+        private void btnMouseMove_Click(object sender, EventArgs e)
+        {
+            this.Cursor = new Cursor(Cursor.Current.Handle);
+            Cursor.Position = new Point(Cursor.Position.X - 50, Cursor.Position.Y - 50);
+            Cursor.Clip = new Rectangle(this.Location, this.Size);
+        }
+
+        private async void btnRemoveSelectedEmployees_Click(object sender, EventArgs e)
+        {
+            em.Delete(listView1);
+            await em.ShowAllEmployees(listView1, lblTaskInfo, btnDodajPracownika, progressBar1, btnWyswietlWszystkichPracownikow, btnImportFromDataBase);
         }
     }
 }

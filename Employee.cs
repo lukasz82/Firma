@@ -120,6 +120,27 @@ namespace Zadanie
             }
         }
 
+        public void Delete(ListView listView1)
+        {
+            int [] selectedItemsIndex = new int[listView1.SelectedItems.Count];
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                selectedItemsIndex[i] = int.Parse(listView1.SelectedItems[i].Text);
+            }
+            string selectedItems = listView1.SelectedItems[0].Text;
+            foreach (var item in selectedItemsIndex)
+            {
+                employees.RemoveAt(item);
+                listView1.Items.RemoveAt(item);
+
+                var file = new List<string>(System.IO.File.ReadAllLines(path));
+                file.RemoveAt(item);
+                File.WriteAllLines(path, file.ToArray());
+
+                MessageBox.Show(item.ToString());
+            }
+        }
+
         public async Task ShowAllEmployees(ListView listView1, Label lblTaskInfo, Button btnDodajPracownika,  ProgressBar progressBar1, Button btnWyswietlWszystkichPracownikow, Button btnImportFromDataBase)
         {
             listView1.Items.Clear();
@@ -240,8 +261,14 @@ namespace Zadanie
             });
         }
 
-        public async Task FindserByName(string userEntered)
+        public async Task FindUserByName(string userEntered)
         {
+
+            if (char.IsLower(userEntered[0]))
+            {
+                userEntered = char.ToUpper(userEntered[0]) + userEntered.Substring(1);
+            }
+
             var result = employees
                          .Where(x => x.LastName.Contains(userEntered) || x.FirstName.Contains(userEntered) || (x.FirstName + " " + x.LastName).Contains(userEntered) || (x.FirstName + x.LastName).Contains(userEntered))
                          .Select(x => new { x.FirstName, x.LastName, x.BirthDate, x.LifeAddress, x.EmplWorkplace }).ToList();

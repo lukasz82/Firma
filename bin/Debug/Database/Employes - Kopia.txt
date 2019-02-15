@@ -1,12 +1,24 @@
-Imię|Nazwisko|Data Urodzenia|Miasto|Ulica|Kod Pocztowy|Dział|Stanowisko|Data Zatrudnienia|Numer Telefonu|Nr Pokoju|Roczny Zarobek
+﻿Imię|Nazwisko|Data Urodzenia|Miasto|Ulica|Kod Pocztowy|Dział|Stanowisko|Data Zatrudnienia|Numer Telefonu|Nr Pokoju|Roczny Zarobek
 Łukasz|Kazimierczak|1980-12-25 00:00:00|Oświęcim|Bura|22|Księgowość|Manager|2000-01-10 00:00:00|0|0|5000
 Łukasz|Kazimierczak|1980-12-25 00:00:00|Oświęcim|Bura|22|Księgowość|Manager|2000-01-10 00:00:00|0|0|5000
 Joanna|Kazimierczak|1980-12-25 00:00:00|Oświęcim|Bura|22|Dyrekcja|Dyrektor|2000-01-10 00:00:00|0|44|5000
+Roman|Jakiś|1980-12-25 00:00:00|Oświęcim|Bura|22|Techniczny|Dyrektor|2000-01-10 00:00:00|0|44|5000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Asystent|2000-12-13 00:00:00|888888888|0|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
@@ -15,14 +27,22 @@ Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Jan|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Edward|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Edward|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Edward|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
 Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Łukasz|Sobieski|1941-12-10 00:00:00|Warszawa|Kowalskiego|23-222|Techniczny|Dyrektor|2000-12-13 00:00:00|0|34|50000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
+Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
 Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
 Joanna|Radwan|1982-02-22 00:00:00|Brzeszcze|Obozowa|22|Marketing|Manager|2000-01-01 00:00:00|0|0|300000
 Kaka|Maka|2019-02-12 00:00:00|Warszawa|Partyzantów|32-620|Techniczny|Dyrektor|2018-09-27 00:00:00|0|4324|2344452
 Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
 Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
+Jan|Kowalski|2019-02-12 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Asystent|2019-02-12 00:00:00|777888999|0|500000
 Anna|Kowalski|2019-02-14 00:00:00|Katowice|Partyzantów|44-222|Marketing|Asystent|2019-02-14 00:00:00|777888999|0|500000
+Anna|Kowalski|2019-02-14 00:00:00|Katowice|Partyzantów|44-222|Testowy|Asystent|2019-02-14 00:00:00|777888999|0|500000
 Edward|Patryk Chłop Bez Nazwiska|2018-09-27 00:00:00|Brzeszcze|Partyzantów|44-222|Marketing|Asystent|2019-02-14 00:00:00|777888999|0|500000
-Jan|Kowalski|2019-02-15 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Pracownik|2019-02-15 00:00:00|0|0|500000
-Jan|Kowalski|2019-02-15 00:00:00|Katowice|Partyzantów|44-222|Dyrekcja|Pracownik|2019-02-15 00:00:00|0|0|500000

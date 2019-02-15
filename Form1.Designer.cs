@@ -83,6 +83,8 @@
             this.txtAddDepartment = new System.Windows.Forms.TextBox();
             this.lblAddDepartment = new System.Windows.Forms.Label();
             this.btnAddDepartment = new System.Windows.Forms.Button();
+            this.btnMouseMove = new System.Windows.Forms.Button();
+            this.btnRemoveSelectedEmployees = new System.Windows.Forms.Button();
             this.Departments.SuspendLayout();
             this.tabStronaGlowna.SuspendLayout();
             this.tabPracownicy.SuspendLayout();
@@ -129,6 +131,7 @@
             // tabPracownicy
             // 
             this.tabPracownicy.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPracownicy.Controls.Add(this.btnRemoveSelectedEmployees);
             this.tabPracownicy.Controls.Add(this.label15);
             this.tabPracownicy.Controls.Add(this.btnSearchUserByName);
             this.tabPracownicy.Controls.Add(this.txtFindUserByName);
@@ -636,6 +639,26 @@
             this.btnAddDepartment.UseVisualStyleBackColor = true;
             this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
+            // btnMouseMove
+            // 
+            this.btnMouseMove.Location = new System.Drawing.Point(25, 495);
+            this.btnMouseMove.Name = "btnMouseMove";
+            this.btnMouseMove.Size = new System.Drawing.Size(88, 35);
+            this.btnMouseMove.TabIndex = 10;
+            this.btnMouseMove.Text = "testowanie myszki :)";
+            this.btnMouseMove.UseVisualStyleBackColor = true;
+            this.btnMouseMove.Click += new System.EventHandler(this.btnMouseMove_Click);
+            // 
+            // btnRemoveSelectedEmployees
+            // 
+            this.btnRemoveSelectedEmployees.Location = new System.Drawing.Point(796, 211);
+            this.btnRemoveSelectedEmployees.Name = "btnRemoveSelectedEmployees";
+            this.btnRemoveSelectedEmployees.Size = new System.Drawing.Size(121, 38);
+            this.btnRemoveSelectedEmployees.TabIndex = 11;
+            this.btnRemoveSelectedEmployees.Text = "Usuń zaznaczonych pracowników";
+            this.btnRemoveSelectedEmployees.UseVisualStyleBackColor = true;
+            this.btnRemoveSelectedEmployees.Click += new System.EventHandler(this.btnRemoveSelectedEmployees_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,6 +666,7 @@
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1035, 542);
             this.Controls.Add(this.Departments);
+            this.Controls.Add(this.btnMouseMove);
             this.Name = "Form1";
             this.Text = "Baza Pracowników";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -715,6 +739,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnSearchUserByName;
         private System.Windows.Forms.TextBox txtFindUserByName;
+        private System.Windows.Forms.Button btnMouseMove;
+        private System.Windows.Forms.Button btnRemoveSelectedEmployees;
     }
 }
 
